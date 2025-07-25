@@ -32,12 +32,16 @@ data={"Date":["22/07/2025","23/07/2025","24/07/2025","25/07/2025","26/07/2025","
 dfforwrite=pd.DataFrame(data)
 print(dfforwrite)
 dfforwrite.to_csv("WrittenCSVwithDF.csv")
+print("Wrote CSV")
 #index=False for not writting indices
 dfforwrite.to_csv("WrittenCSVwithDF.csv",index=False)
-#columns=["",""] for writing oly specific columns
-dfforwrite.to_csv("WrittenCSVwithDF.csv",columns=["Temperature","Weather"])
+print("Wrote CSV with index=False")
 #header=False for skipping column names from writing
-dfforwrite.to_csv("WrittenCSVwithDF.csv",header=False)
+dfforwrite.to_csv("WrittenCSVwithDF.csv",header=False,index=False)
+print("Wrote CSV with header=False")
+#columns=["",""] for writing oly specific columns
+dfforwrite.to_csv("WrittenCSVwithDF.csv",columns=["Temperature","Weather"],index=False)
+print("Wrote CSV with columns=[]")
 
 #---------------------------------------------------------------------------------------------------------
 
