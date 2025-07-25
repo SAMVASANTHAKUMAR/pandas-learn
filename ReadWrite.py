@@ -28,7 +28,7 @@ print()
 #parameters: index,header
 data={"Date":["22/07/2025","23/07/2025","24/07/2025","25/07/2025","26/07/2025","27/07/2025","28/07/2025","29/07/2025","30/07/2025","31/07/2025",],
       "Temperature":[25,30,34,26,23,38,22,34,32,23],"Weather":["windy","sunny","hot_sunny","windy","windy","hot_sunny","windy","hot_sunny","hot_sunny","windy"],
-      "Humidity":[4,7,8,4.5,3,9,2.5,8,7.5,3]}
+      "Humidity":[4,7,8,4.5,3,9,2.5,8,7.5,3.5]}
 dfforwrite=pd.DataFrame(data)
 print(dfforwrite)
 dfforwrite.to_csv("WrittenCSVwithDF.csv")
@@ -39,7 +39,7 @@ dfforwrite.to_csv("WrittenCSVwithDF.csv",columns=["Temperature","Weather"])
 #header=False for skipping column names from writing
 dfforwrite.to_csv("WrittenCSVwithDF.csv",header=False)
 
-#---------------------------------------------------------------------------------------------------------
+'''#---------------------------------------------------------------------------------------------------------
 
 #READING EXCEL
 #read_excel() for reading excel files
@@ -74,7 +74,7 @@ data2={"name":["varun","vishnu","roy","ram"],
 df2forwriteexcel=pd.DataFrame(data2)
 with pd.ExcelWriter("ExcelwithTwoDFs.xlsx")as writer:
     df2forwriteexcel.to_excel(writer,sheet_name="MARKS_DF")
-    dfforwriteexcel.to_excel(writer,sheet_name="WEATHER_DF")
+    dfforwriteexcel.to_excel(writer,sheet_name="WEATHER_DF")'''
 
 
 
