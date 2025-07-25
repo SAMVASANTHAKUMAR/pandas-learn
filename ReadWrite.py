@@ -39,7 +39,7 @@ dfforwrite.to_csv("WrittenCSVwithDF.csv",columns=["Temperature","Weather"])
 #header=False for skipping column names from writing
 dfforwrite.to_csv("WrittenCSVwithDF.csv",header=False)
 
-'''#---------------------------------------------------------------------------------------------------------
+#---------------------------------------------------------------------------------------------------------
 
 #READING EXCEL
 #read_excel() for reading excel files
@@ -74,7 +74,7 @@ data2={"name":["varun","vishnu","roy","ram"],
 df2forwriteexcel=pd.DataFrame(data2)
 with pd.ExcelWriter("ExcelwithTwoDFs.xlsx")as writer:
     df2forwriteexcel.to_excel(writer,sheet_name="MARKS_DF")
-    dfforwriteexcel.to_excel(writer,sheet_name="WEATHER_DF")'''
+    dfforwriteexcel.to_excel(writer,sheet_name="WEATHER_DF")
 
 
 
