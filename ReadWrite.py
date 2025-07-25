@@ -22,3 +22,65 @@ df5=pd.read_csv(r"C:\Users\samva\OneDrive\Documents\GIT practice\pandasweatherda
     "Temperature":["NaN","0"],"Weather":["NaN","NO Event"]})
 print("DF by read_csv(na_values with column specification):",df5)
 print()
+
+#WRITING CSV
+#to_csv() for writing csv
+#parameters: index,header
+data={"Date":["22/07/2025","23/07/2025","24/07/2025","25/07/2025","26/07/2025","27/07/2025","28/07/2025","29/07/2025","30/07/2025","31/07/2025",],
+      "Temperature":[25,30,34,26,23,38,22,34,32,23],"Weather":["windy","sunny","hot_sunny","windy","windy","hot_sunny","windy","hot_sunny","hot_sunny","windy"],
+      "Humidity":[4,7,8,4.5,3,9,2.5,8,7.5,3]}
+dfforwrite=pd.DataFrame(data)
+print(dfforwrite)
+dfforwrite.to_csv("WrittenCSVwithDF.csv")
+#index=False for not writting indices
+dfforwrite.to_csv("WrittenCSVwithDF.csv",index=False)
+#columns=["",""] for writing oly specific columns
+dfforwrite.to_csv("WrittenCSVwithDF.csv",columns=["Temperature","Weather"])
+#header=False for skipping column names from writing
+dfforwrite.to_csv("WrittenCSVwithDF.csv",header=False)
+
+#---------------------------------------------------------------------------------------------------------
+
+#READING EXCEL
+#read_excel() for reading excel files
+dfexcel=pd.read_excel("C:/Users/samva/OneDrive/Documents/GIT practice/pandasmarkdata.xlsx","Sheet1")
+print("DF by read_excel():",dfexcel)
+print()
+#to fill null values in specific columns of excel file
+def convert(cell):
+    if cell == "null":
+        return "the cell is null"
+    return cell
+dfexcelnull=pd.read_excel("C:/Users/samva/OneDrive/Documents/GIT practice/pandasmarkdata.xlsx","Sheet1",converters={
+    "Temperature":convert})
+print(dfexcelnull)
+
+#WRITING EXCEL
+#to_excel() for writing
+data={"Date":["22/07/2025","23/07/2025","24/07/2025","25/07/2025","26/07/2025","27/07/2025","28/07/2025","29/07/2025","30/07/2025","31/07/2025",],
+      "Temperature":[25,30,34,26,23,38,22,34,32,23],"Weather":["windy","sunny","hot_sunny","windy","windy","hot_sunny","windy","hot_sunny","hot_sunny","windy"],
+      "Humidity":[4,7,8,4.5,3,9,2.5,8,7.5,3]}
+dfforwriteexcel=pd.DataFrame(data)
+dfforwriteexcel.to_excel("WrittenExcelwithDF.xlsx",sheet_name="FirstDF")
+
+#WRITING TWO different DFs in SINGLE EXCEL file with TWO SHEET names
+data2={"name":["varun","vishnu","roy","ram"],
+       "English":[90,85,75,65],
+       "Tamil":[65,75,85,95],
+       "Maths":[78,87,67,87],
+       "Physics":[46,56,77,66],
+       "Chemistry":[66,77,88,99],
+       "CS":[97,96,95,94]}
+df2forwriteexcel=pd.DataFrame(data2)
+with pd.ExcelWriter("ExcelwithTwoDFs.xlsx")as writer:
+    df2forwriteexcel.to_excel(writer,sheet_name="MARKS_DF")
+    dfforwriteexcel.to_excel(writer,sheet_name="WEATHER_DF")
+
+
+
+
+
+
+
+
+
